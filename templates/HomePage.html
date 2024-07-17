@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Welcome to use~🥳</title>
+            <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        </head>
+
+        <body>
+            <div id="content">
+                <h1 id="main-text">Welcome!</h1>
+                <p id="sub-text">點擊任意處開始...</p>
+                <div id="made-by">
+                    <p>Made by WITS T Ambassador☺️</p>
+                </div>
+            </div>
+
+            <div id="overlay">
+                <div id="loader"></div>
+            </div>
+
+            <canvas id="particle-canvas"></canvas>
+            <script src="{{ url_for('static', filename='script.js') }}"></script>
+        </body>
+    </html>
+
+<!--以下為註解
+
+<!DOCTYPE html>：這是HTML5文件的宣告，告訴瀏覽器這個文件使用HTML5標準。
+<meta charset="UTF-8">：定義文檔的字符編碼為UTF-8，確保能正確顯示多種語言字符。
+<meta name="viewport" content="width=device-width, initial-scale=1.0">：設置視口，以確保頁面在不同設備上的正確顯示，尤其是移動設備。
+<link rel="stylesheet" href="style.css">：鏈接外部CSS文件style.css，用於定義頁面的樣式。
+
+<div id="overlay">：遮罩層，用於點擊後顯示載入動畫。目的是在點擊頁面後顯示一個遮罩層。這個遮罩層會覆蓋整個頁面，通常用於顯示載入動畫或阻止用戶進行其他操作，直到某些背景處理完成。
+<div id="loader"></div>：用一個容器去顯示載入動畫。
+<canvas id="particle-canvas"></canvas>：這個標籤是一個HTML5的<canvas>元素，用於在網頁上繪製2D或3D圖形。這裡它用來顯示粒子特效。
+    <canvas>標籤本身不包含任何內容，所有的繪製操作都通過JavaScript來完成。在JavaScript中，我們可以獲取這個畫布的2D繪圖上下文，並使用各種繪圖API來創建粒子特效。
+-->

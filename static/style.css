@@ -1,0 +1,194 @@
+html, body{
+    margin: 0;
+    padding: 0;
+        /* margin: 0; 和 padding: 0;：移除body元素的默認外邊距和內邊距，確保內容填滿整個頁面。*/
+    width: 100%;
+    height: 100%;
+        /* width: 100%; 和 height: 100%;：設定body的寬度和高度為100%。*/
+    overflow: hidden;
+        /* 防止滾動條出現 */
+    font-family: Arial, sans-serif;
+        /* font-family: Arial, sans-serif;：設置字體為Arial或默認無襯線字體。*/
+}
+body{
+    display: flex;
+        /* display: flex;：將body設置為flex容器。使得容器的子元素可以靈活且高效地排列和對齊。*/
+    flex-direction: column;
+        /*
+        flex-direction：定義主軸方向（子元素的排列方向）。
+        column：主軸為垂直方向，子元素從上到下排列。
+        */
+    justify-content: center;
+        /*
+        justify-content：定義沿主軸（橫向）的子元素對齊方式。
+        center：子元素居中排列。
+        */
+    align-items: center;
+        /*
+        align-items：定義沿交叉軸（縱向）的子元素對齊方式。
+        center：子元素居中對齊。
+        */
+    background-color: #f0f0f0;
+    position: relative;
+        /* 設置body為相對定位，確保絕對定位的子元素相對於body定位 */
+}
+
+#content{
+    margin-top: 0;
+        /* margin-top: 150px;：設定上外邊距，使內容區域向下移動。 */
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+        /* text-align: center;：設置文本居中對齊。 */
+    height: 100%;
+}
+
+#main-text{
+    font-size: 5em;
+    background: linear-gradient(to left,
+    rgb(3, 66, 98), rgb(1, 90, 135),
+    rgb(3, 255, 3), rgb(1, 222, 1),
+    rgb(3, 66, 98)) ;
+        /* background: linear-gradient(to left, ...)：設置文字背景為從左向右的線性漸變。 */
+    background-size: 150% auto; 
+        /* background-size: 150% auto;：設置背景尺寸，使顏色漸變流動，讓整個流動較順。 */
+    background-clip: text;
+        /* background-clip: text;：設置背景裁剪為文字形狀。 */
+    color: transparent;
+        /* color: transparent;：設置文字顏色為透明，將文字顯示背景漸變顏色。*/
+    animation: colorflow 10s linear infinite, flip 0.3s ease-in-out both;
+        /* 
+        # 每個動畫由幾個部分組成：動畫名稱、動畫時長、時間函數、延遲時間、播放次數、方向、填充模式和是否暫停。
+
+        animation：設置動畫。
+            colorflow 10s linear infinite：設置文字顏色漸變秒數
+            - colorflow：動畫名稱。這是你在@keyframes中定義的動畫名稱。
+            - 10s：動畫時長。這裡設置為10秒，表示動畫將持續10秒鐘。
+            - linear：時間函數。這裡使用線性（linear），表示動畫將以均勻的速度播放。
+            - infinite：播放次數。這裡設置為無限（infinite），表示動畫將無限次重複播放。
+
+            flip 0.3s ease-in-out both：設置翻轉動畫秒數
+            - flip：動畫名稱。這是你在@keyframes中定義的另一個動畫名稱。
+            - 0.3s：動畫時長。這裡設置為0.3秒，表示動畫將持續0.3秒鐘。
+            - ease-in-out：時間函數。這裡使用ease-in-out，表示動畫將以緩慢開始和結束，中間速度較快的方式播放。
+            - both：填充模式。表示動畫在運行之前和之後都應用動畫的第一幀和最後一幀狀態。
+        */
+    transition: transform 0.3s ease-in-out;
+        /* 
+        transition: transform 0.3s ease-in-out;：這一行設置了元素的過渡效果。
+            - transition屬性是CSS中用來設置元素的過渡效果的簡寫屬性。過渡效果可以在元素的某些屬性變化時應用平滑的動畫效果。
+            - transform：過渡效果應用於的屬性名稱。這裡指定為transform，表示當transform屬性變化時應用過渡效果。
+            - 0.3s：過渡效果的時長。這裡設置為0.3秒，表示過渡效果將持續0.3秒鐘。
+            - ease-in-out：時間函數。這裡使用ease-in-out，表示過渡效果將以緩慢開始和結束，中間速度較快的方式播放。
+        */
+}
+
+@keyframes colorflow{
+    to {
+        background-position-x: 2000px;
+    }
+        /* 
+        定義顏色漸變動畫，將背景位置從初始位置移動到x方向的2000px。
+            to關鍵字表示動畫的結束狀態。
+        */
+}
+
+#sub-text{
+    font-size: 1.5em;
+    margin-top: 30px;
+    color: #888;
+    animation: pulse 2s infinite;
+        /* pulse 2s infinite;：設置微微放大縮小的動畫。 */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+        /* 
+        0% { transform: scale(1); }定義了一個動畫的起點狀態。0%關鍵字表示動畫的開始狀態。
+            scale(1)：表示元素的縮放比例為1，即沒有縮放，保持原始大小。
+        */
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+        /* 
+        定義放大縮小動畫，從原始大小放大到1.1倍再縮回原始大小。
+            transform屬性：用於應用2D或3D變換
+        */
+}
+
+#made-by{
+    font-size: 12px;
+    color: #808080;
+    position: absolute;
+    bottom: 10px;
+        /* bottom: 10px;：設置元素距底部10px。 */
+    width: 100%;
+    text-align: center;
+}
+
+#overlay {
+    display: none;
+        /* display: none;：初始狀態為隱藏。 */
+    position: absolute;
+    top: 0;
+    left: 0;
+        /* top: 0; 和 left: 0;：設置元素位置在頂部和左邊0位置。 */
+    width: 100%;
+    height: 100%;
+        /* width: 100%; 和 height: 100%;：設置元素寬度和高度為100%，覆蓋整個視窗。 */
+    background-color: rgba(0, 0, 0, 0.8);
+        /* background-color: rgba(0, 0, 0, 0.8);：設置半透明黑色背景。 */
+    justify-content: center;
+    align-items: center;
+        /* justify-content: center; 和 align-items: center;：在主軸和交叉軸上居中對齊子元素。 */
+    z-index: 10;
+        /* z-index: 10;：設置z-index，使元素在其他元素之上。 */
+}
+
+#loader{
+    border: 16px solid;
+        /* border: 16px solid;：設置邊框為16px的實線。 */
+    border-color:limegreen darkslategray darkslategray;
+        /* border-color: limegreen darkslategray darkslategray;：設置邊框顏色。 */
+    border-radius: 50%;
+        /* border-radius: 50%;：設置圓角，使元素顯示為圓形。 */
+    width: 90px;
+    height: 90px;
+        /* width: 90px; 和 height: 90px;：設置元素寬度和高度為90px。 */
+    animation: rotate 1s linear infinite;
+        /* rotate 1.5s linear infinite;：設置旋轉動畫。 */
+}
+
+@keyframes rotate{
+    to{transform: rotate(365deg);}
+        /*
+        定義旋轉動畫，使元素旋轉365度。
+        - 當動畫開始時，元素將從其初始狀態（通常是transform: rotate(0deg)）開始。
+        - 當動畫結束時，元素將旋轉到365度。
+        */
+}
+
+@keyframes blackHole {
+    0% { transform: scale(1); }
+    100% { transform: scale(0); }
+        /* 定義黑洞效果動畫，將元素從原始大小縮小到0。 */
+}
+
+#particle-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+        /* z-index: -1;：設置z-index，使元素在其他元素的後面。 */
+    pointer-events: none;
+        /* pointer-events: none;：禁用指針事件，使畫布不影響其他元素的互動。 */
+}

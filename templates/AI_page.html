@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖🤖🤖🤖🤖</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='AI_style.css') }}">
+    <script src="{{ url_for('static', filename='AI_script.js') }}"></script>
+</head>
+
+<body>
+    <div>
+        <h1 id="main-text">"Onboarding Prediction Assistant"</h1>
+        <p class="hintWord">The models are being deployed with great effort！<br/>Currently, only 4️ models are available.</p>
+        <form action="{{ url_for('postInput') }}" method="POST" onsubmit="handleSubmit(event)">
+            <table border="0">
+                <tr>
+                    <th>職缺狀態</th>
+                    <td>
+                        <select name="condition" required>
+                            <option value="">請選擇</option>
+                            <option value="0">一般</option>
+                            <option value="1">緊急</option>
+                            <option value="0">隨時</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>面試形式</th>
+                    <td>
+                        <select name="interview_type" required>
+                            <option value="">請選擇</option>
+                            <option value="0">實體面試</option>
+                            <option value="1">線上面試</option>
+                        </select>
+                    </td>   
+                </tr>           
+                <tr>
+                    <th>產業類型</th>
+                    <td>
+                        <select name="type" required>
+                            <option value="">請選擇</option>
+                            <option value="0">金融</option>
+                            <option value="1">科技</option>
+                            <option value="2">醫療</option>
+                            <option value="3">其他</option>
+                        </select>
+                    </td>                                
+                </tr>
+                <tr>
+                    <th>偏好地區</th>
+                    <td>
+                        <select name="place" required>
+                            <option value="">請選擇</option>
+                            <option value="0">台北市</option>
+                            <option value="1">大台北地區</option>
+                            <option value="2">新竹縣市</option>
+                            <option value="3">台南市</option>
+                            <option value="4">其他</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>技術職缺</th>
+                    <td>
+                        <select name="tec" required>
+                            <option value="">請選擇</option>
+                            <option value="0">是</option>
+                            <option value="1">否</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>使用技術</th>
+                    <td>
+                        <div id="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="Cloud" name="Cloud" value="1" checked />
+                                <label for="Cloud">Cloud</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="back" name="back" value="1" />
+                                <label for="back">後端</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="Hibernate" name="Hibernate" value="1" />
+                                <label for="Hibernate">Hibernate</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="PostgreSQL" name="PostgreSQL" value="1" />
+                                <label for="PostgreSQL">PostgreSQL</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="Struts" name="Struts" value="1" />
+                                <label for="Struts">Struts</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="其他" name="Other" value="1" />
+                                <label for="其他">其他</label>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>預測類型</th>
+                    <td>
+                        <select name="model_selection" required>
+                            <option value="">請選擇</option>
+                            <option value="60day_Client_Pass_percentage_8">第60天 客戶 面試通過率</option>
+                            <option value="30day_Client_Pass_percentage_10">第30天 客戶 面試通過率</option>
+                            <option value="75day_arrival_percentage_13">第75天 正式入職率</option>
+                            <option value="15day_arrival_percentage_17">第15天 正式入職率</option>
+                        </select>
+                    </td>
+                </tr>    
+                <tr>
+                    <td colspan="2"><input id="button" type="submit" value="Predict !"></td>
+                </tr>
+            </table>
+        </form>
+
+        <div id="made-by">
+            <p>Made by WITS T Ambassador☺️</p>
+        </div>
+    </div>
+
+    <!-- 彈出視窗 -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p id="modalMessage"></p>
+        </div>
+    </div>
+</body>
+</html>

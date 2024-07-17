@@ -1,0 +1,199 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#main-text {
+    font-size: 2.5em;
+    color: #122e55;
+    animation: float 3s ease-in-out infinite;
+    text-align: center; /* 文字居中 */
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.hintWord {
+    font-size: 15px;
+    color: #808080;
+    margin-bottom: 20px; /* 調整底邊距 */
+    width: 100%;
+    text-align: center;
+}
+
+#made-by {
+    font-size: 12px;
+    color: #808080;
+    margin-bottom: 20px; /* 調整底邊距 */
+    width: 100%;
+    text-align: center;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px; /* 增加內邊距 */
+    border-radius: 10px; /* 調整圓角 */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* 調整陰影 */
+    width: 90%; /* 調整寬度 */
+    max-width: 500px; /* 調整最大寬度 */
+    margin: 20px auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* 合併表格邊框 */
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    font-size: 1.1em;
+    color: #555;
+    white-space: nowrap
+}
+
+td {
+    font-size: 1em;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+select:focus, form select:hover {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+#button {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%; /* 調整按鈕寬度 */
+    padding: 12px; /* 調整內邊距 */
+    margin-top: 20px; /* 增加上邊距 */
+    border: none; /* 移除邊框 */
+    border-radius: 4px; /* 調整圓角 */
+    font-size: 1.1em; /* 調整字體大小 */
+}
+
+#button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+@media (max-width: 700px) {
+    #logo {
+        width: 80px; /* 調整較小視窗的logo大小 */
+        height: auto; /* 保持比例 */
+    }
+
+    #main-text {
+        font-size: 2em; /* 調整文字大小 */
+        margin-top: 20px; /* 調整上邊距 */
+    }
+
+    #made-by {
+        margin-bottom: 10px;
+    }
+
+    form {
+        padding: 15px; /* 調整內邊距 */
+    }
+
+    form th, form td {
+        font-size: 0.9em;
+    }
+
+    #button {
+        padding: 10px; /* 調整內邊距 */
+        font-size: 1em; /* 調整字體大小 */
+    }
+}
+
+#checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 10px; /* 確保 legend 與 checkbox 群組不會距離太遠 */
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    width: 45%; /* 調整寬度以便每行放置三個選項 */
+    margin-bottom: 10px; /* 增加下邊距使每個項目之間有一些空間 */
+}
+
+.checkbox-item input[type="checkbox"] {
+    margin-right: 5px; /* 調整checkbox與label之間的距離 */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
