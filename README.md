@@ -46,7 +46,7 @@
 
 2. 進入專案目錄：
    ```bash
-   cd 240717_OnboardingPredictionAI_someModel
+   cd OnboardingPredictionAI_someModel
    ```
 
 3. 建立虛擬環境並激活：
